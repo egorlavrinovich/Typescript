@@ -166,6 +166,92 @@ const John: DataPerson = {
     login: 's'
 }
 
+//! Функции в TYPESCRIPT
+
+const fn1= (num:number):string => {
+    return String(num)
+}
+
+// Передача callback ф-ции
+
+type Callback1 = (perem:string) => string
+
+function fn(params:Callback1) {
+    
+}
+
+fn((str)=>str.slice())
+
+// Необязательные параметры (нужно совершить проверку на передачу)
+
+type Callback2 = (num:number) => string
+
+function fn2(cb?:Callback2) {
+    if (cb === undefined) {
+        cb = String
+    }
+    cb(12)
+}
+
+// Значения по умолчанию
+
+function Somee(x:number = 0,y:number=0):[number,number] {
+    return [x,y]
+}
+
+Somee(2,5)
+
+// Варинат передачи REST оператора (...arr) - неограниченного массива
+
+function fn3(...arr:number[]):number[] {
+    return arr.map(item=>item**2)
+}
+
+//? Передача в ф-цию объектов
+
+interface Pattern {
+    label:string
+}
+
+function Example23(params:Pattern) {
+    
+}
+
+const Obj3 = {
+    label: 'sdfs',
+    Age: 18
+}
+
+Example23(Obj3)
+
+Example23({label: 'sdfs',Age: 18}) // т.е. в ф-цию мы не можем передать напрямую объект, который не соответствует интерфейсу Pattern 
+
+//! Перегрузка ф-ций
+
+// Суть заключается в том что мы можем принимать в ф-цию сразу несколько переменных разных типов и обрабатывать их
+
+function pickCard(x:number | {suit:string; card:number}[]):{suit:string; card:number} | number{
+    
+} // Данный вариант слишком длинный, можно записать по другому
+
+//? Мы можем написать принимаемые параметры ф-ции в несколько строк
+
+//! Есть нюанс, если в ф-ции один параметр (params) значит он и везде должен быть один
+//! и сколько раз мы дописали ф-цию, столько раз мы должны её проверить
+
+function Jik(x:number):{key1:string;key2:number};
+function Jik(x:{key1:string;key2:number}[]):number;
+function Jik(x) : any{
+    if(typeof x === 'object')
+    {
+        console.log('object')
+    } else if(typeof x === 'number')
+    {
+        console.log('number')
+    }
+}
+Jik([{key1='dfg',key2:2}])
+
 //! TYPE СОЕДИНЕНИЕ В ОДИН TYPE
 
 type One = {
