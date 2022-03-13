@@ -109,9 +109,9 @@ const example4: OrederData[] = [
 //! ОБЪЕКТЫ
 
 type Obj = {
-    a: number;
-    b: string;
-    c: boolean;
+    a: number,
+    b: string,
+    c: boolean
 }
 
 const obj1: Obj = {
@@ -121,11 +121,11 @@ const obj1: Obj = {
 }
 
 interface MyObject {
-    readonly a: number; // Можно только читать данный ключ, перезаписывать не можем
-    b: number;
-    c?: string; // необязательное значение
-    someMethod?: () => number; // Объявляем метод, который должен вернуть число (необязательный)
-    [key: string]: number | string; //? Можно добавлять в наш интерфейс  сколько угодно ключей определенного типа 
+    readonly a: number, // Можно только читать данный ключ, перезаписывать не можем
+    b: number,
+    c?: string, // необязательное значение
+    someMethod?: () => number, // Объявляем метод, который должен вернуть число (необязательный)
+    [key:string]: number | string //? Можно добавлять в наш интерфейс  сколько угодно ключей определенного типа 
 }
 
 const obj2: MyObject = {
